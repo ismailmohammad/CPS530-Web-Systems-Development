@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./downloadedBootstrap.css" rel="stylesheet">
+    <title>Lab 6 - SVG</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+            background: linear-gradient(90deg, #363c3d, #232424);
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            transition: ease all 1s;
+        }
+
+        .title {
+            color: white;
+            font: 800 2rem;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.123);
+            border-radius: 1em;
+            margin: 20px;
+            opacity: 1;
+            transition: ease all 0.5s;
+            color: white;
+        }
+
+        .inner-card {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 1em;
+        }
+
+        .problem {
+            background: linear-gradient(0.25turn, #00b0cf, #3bdbce, #00b0cf);
+            /* background: linear-gradient(90deg, #44ac5c, #848171); */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        a.card:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .shadow {
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.219);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="card shadow problem">
+                    <div class="card-body row">
+                        <h1 class="title">Lab 6 SVG</h1>
+                    </div>
+                </div>
+                <div class="card shadow problem">
+                    <h2 class="title">Problem 1: Single SVG Shapes</h2>
+                    <h4 class="title">For the life of me I couldn't figure out what font was being used, sorry.</h4>
+                    <div class="card shadow inner-card">
+                        <img src="./assets/problem1.svg" />
+                    </div>
+                </div>
+                <div class="card shadow problem">
+                    <h2 class="title">Problem 2: SVG Flags</h2>
+                    <h4 class="title">The circle on Bangladesh's flag is intentionally skewed to the left as per Wikipedia.</h4>
+                    <div class="card shadow inner-card p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <img style="width: 100%; height: 100%;" src="./assets/problem2.svg"/>
+                            </div>
+                            <div class="col-6">
+                                <h4 class="title">Actual Flags:</h4>
+                                <img style="width: 40%; height: 60%;" src="./assets/jp_actual_flag.png" />
+                                <img style="width: 40%; height: 60%;" src="./assets/bd_actual_flag.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

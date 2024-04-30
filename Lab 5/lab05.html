@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./downloadedBootstrap.css" rel="stylesheet">
+    <title>Lab 5 - jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./html2canvas.min.js"></script>
+    <script src="./lab05.js"></script>
+    <!-- Royalty Free- No Copyright -->
+    <audio id="bg-music" src="./assets/bg-music.mp3" loop></audio>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif !important;
+            background: url('./assets/images/farm-bg.png');
+            background-size: cover;
+            background-position: 50%;
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            transition: ease all 1s;
+        }
+
+        .title {
+            color: white;
+            font: 800 2rem;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.123);
+            border-radius: 1em;
+            margin: 20px;
+            opacity: 1;
+            transition: ease all 0.5s;
+            color: white;
+        }
+
+        .inner-card {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 1em;
+        }
+
+        .problem {
+            background: linear-gradient(0.25turn, #44ac5c, #97bb80, #44ac5c);
+            /* background: linear-gradient(90deg, #44ac5c, #848171); */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        a.card:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .shadow {
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.219);
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .operatin-table {
+            padding: 2em;
+        }
+        #start-button {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            width: 50%;
+            height: 12.5%;
+            font-size: 1.5em;
+            border-radius: 1em;
+        }
+        .body-part {
+            cursor: pointer;
+            transition: transform ease-in-out .5s;
+        }
+        .body-part:hover {
+            transform: scale(1.05);
+        }
+        .body {
+            opacity: 0.2;
+            margin-top: 5em;
+        }
+        #help-text {
+            position: absolute;
+            top: 10%;
+        }
+        .hat {
+            position: absolute;
+            top: 0;
+            left: 35%;
+            height: 30%;
+        }
+        .eyes {
+            position: absolute;
+            top:15%;
+            left: 25%;
+            height: 40%;
+        }
+        .nose {
+            position: absolute;
+            top:45%;
+            left: 35%;
+        }
+        .mouth {
+            position: absolute;
+            top: 65%;
+            left: 25%;
+            height: 30%;
+        }
+        canvas {
+            cursor: pointer;
+            margin-bottom: 1em;
+            transform-origin: center;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        canvas:nth-child(even) {
+            transform: rotate(-5deg);
+        }
+        canvas:nth-child(odd) {
+            transform: rotate(5deg);
+        }
+        #photo-cont {
+            max-height: 25rem;
+            overflow-y: auto;
+        }
+        .fullsc {
+            position: fixed;
+            transform: rotate(0deg) !important;
+            z-index: 9999;
+        }
+        .download-btn,
+        .shrink-image {
+            position: fixed;
+            z-index: 99999;
+            right: 32%;
+            top: 2%;
+            max-width: fit-content;
+        }
+        .download-btn {
+            right: 2%;
+            top: 95%;
+            z-index: 100000;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="music-toggle" type="button" class="btn btn-success">Pause Music</button>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="card shadow problem">
+                    <div class="card-body row">
+                        <h1 class="title">Lab 4 - jQuery - "Mr. Potayto, Mr. Potahto, ehh 🤌🏽"</h1>
+                    </div>
+                </div>
+                <div class="card shadow problem">
+                    <h2 class="title">Mr.Taytoh needs a new look to leave the city. Offer him one he can't refuse.</h2>
+                    <div class="row">
+                        <div class="card-body col-sm-12 col-lg-6">
+                            <div class="card shadow inner-card">
+                                <h2 class="title">Operatin' Table</h2>
+                            </div>
+                            <!-- <h2 class="title">Operatin' Table</h2> -->
+                            <div class="card shadow inner-card operatin-table">
+                                <h2 id="help-text" data-html2canvas-ignore class="title">Click on the body parts to attach them to Mr. Taytoh. Share pictures of your creation after.</h2>
+                                <!-- Keeping body stationary since you gotta start off with a potato amirite? -->
+                                <img class="body" src="./assets/potato-bits/body.png" />
+                                <button data-html2canvas-ignore id="start-button" type="button" class="btn btn-success">Start Assemblin'</button>
+                            </div>
+                        </div>
+                        <div id="game-parts-container" class="card-body col-sm-12 col-lg-6">
+                            <div class="card shadow inner-card">
+                                <h2 class="title">Bits and Bobs</h2>
+                            </div>
+                            <div id="parts-container" class="card shadow inner-card">
+                                <div class="row p-4 parts">
+                                    <img class="body-part col-3" src="./assets/potato-bits/hat.png" />
+                                    <img class="body-part col-3" src="./assets/potato-bits/eyes.png" />
+                                    <img class="body-part col-3" src="./assets/potato-bits/nose.png" />
+                                    <img class="body-part col-3" src="./assets/potato-bits/mouth.png" />
+                                </div>
+                            </div>
+                            <div class="card shadow inner-card game-item">
+                                <div class="p-4 row">
+                                <button onclick="capture()" class="col btn btn-primary mx-1">Snap Picture</button>
+                                <a class="col btn btn-danger mx-1" href="">Reset</a>
+                                </div>
+                            </div>
+                            <div class="card shadow inner-card game-item">
+                                <h2 class="title">Witness Protection Hall of Fame</h2>
+                            </div>
+                            <div id="photo-cont" class="card shadow inner-card game-item p-4">
+                                <div class="row" id="photos">
+                                    <!-- Ideally the photos would be click to expand for better UX, but the assignment says hover to expand so that's what it is -->
+                                    <button style="display: none;" class="shrink-image btn">❌</button>
+                                    <a style="display: none;" class="download-btn btn btn-success">💾 Download Image</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+        </div>
+        <div class="card shadow problem">
+            <div class="card-body">
+                <h4 class="text-white text-center">Credits/Attributions for Images Used (Non Commercial Use):</h4>
+                <p class="text-white">Farm: Image by brgfx on Freepik</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../assets/cityscape.jpg') center/cover fixed no-repeat;
+    animation: breathe 10s linear infinite;
+}
+
+@keyframes breathe {
+    0%   { background-size: 100% 100%; }
+    50% { background-size: 110% 110%; }
+    100% { background-size: 100% 100%;}
+  }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.tiles-container-header  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+
+.tile {
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5em;
+    margin: 0.8em;
+    color: black;
+    opacity: 0.8;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+    transition: ease all 0.5s;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.img-container {
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.large-image {
+    cursor: pointer;
+    border-radius: 2rem;
+    max-width: 100vw;
+    height: 60vh;
+    
+    width: 100%;
+    transition: transform 0.2s ease-in-out, filter 1s ease-in-out;
+    filter: blur(2px);
+    overflow: hidden;
+    box-shadow: 1px 2px 2px 0px black;
+}
+
+.large-image:hover {
+    transform: scale(1.01);
+    filter: none;
+}
+
+.tiles-container,
+.tiles-container-middle {
+    display: grid;
+}
+
+.tiles-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.tiles-container-middle {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tiles-container .tile,
+.tiles-container-middle .tile {
+}
+
+.tiles-container-header  .tile:nth-child(1) {
+    background-color: #3498db;
+}
+
+.tiles-container-header  .tile:nth-child(2) {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.tiles-container-middle .tile:nth-child(1) {
+    background-color: #9b59b6;
+    color: white;
+}
+
+.tiles-container-middle .tile:nth-child(2) {
+    background-color: #2ecc71;
+}
+
+.tiles-container-middle .tile:nth-child(3) {
+    background-color: #f1c40f;
+}
+
+.tiles-container .tile:nth-child(1) {
+    background-color: #e67e22;
+    color: white;
+}
+
+.tiles-container .tile:nth-child(2) {
+    background-color: #1abc9c;
+}
+
+.tiles-container .tile:nth-child(3) {
+    background-color: #d35400;
+    color: white;
+}
+
+.tiles-container .tile:nth-child(4) {
+    background-color: #ff6b81;
+}
+
+
+
+/* Tabletd */
+@media (max-width: 768px) {
+    .tiles-container-header  {
+        grid-template-columns: 1fr;
+    }
+    .tiles-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .tiles-container-middle {
+        grid-template-columns: 1fr;
+    }
+    .tile {
+        padding: 0.4em;
+        margin: 0.7em;
+    }
+    .large-image {
+        width: 100%;
+        
+    }
+    .large-image {
+        height: 50%;
+    }
+}
+/* phoen */
+@media (max-width: 480px) {
+    .tiles-container {
+        grid-template-columns: 1fr;
+    }
+    .tiles-container-middle .tile p {
+        font-size: 1.5em;
+    }
+    .tiles-container .tile p {
+        font-size: 1em;
+    }
+    .squeegee-text {
+        font-size: 1em;
+    }
+
+    .tile {
+        padding: 0.5em;
+        margin: 0.8em;
+    }
+    
+    .counter.some-nice-text{
+        font-size: 0.7rem;
+        padding: 0.7rem;
+        border-radius: 0.7rem;
+    }
+
+}
+
+
+
+
+/* Squeegee Tings */
+.squeegee {
+    opacity: 0;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.squeegee-text {
+    color:#9cc9f7;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 1px 1px 2px black;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes squeegeeTheCity {
+    0% {
+        top: 25%;
+        opacity: 0.5;
+    }
+    100% {
+        top: 50%;
+        opacity: 0;
+    }
+
+}
+
+.large-image:hover ~ .squeegee {
+    animation: squeegeeTheCity 1s linear;
+    animation-fill-mode: forwards;
+}
+
+.large-image:hover ~ .squeegee-text {
+    opacity: 0;
+}
+
+.anthem {
+    display: block
+}
+
+
+/* Counter - Inspiration/Source: https://css-tricks.com/animating-number-counters/ */
+.some-nice-text {
+    color: white;
+    font: 800 2rem system-ui;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+}
+
+@property --cityPopulation {
+    syntax: "<integer>";
+    initial-value: 8237000; /* Source: https://www.macrotrends.net/cities/largest-cities-by-population */
+    inherits: true;
+  }
+  .counter {
+    opacity: 0;
+    position: absolute;
+    top: 15%;
+    left: 95%;
+    transform: translateX(-95%);
+    background-color: #2e2e2e;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .counter {
+    transition: --cityPopulation 1s ease-in-out, opacity 1s ease-in-out, transform 0.2s ease-in-out;
+    counter-set: cityPopulation var(--cityPopulation);
+  }
+
+  .counter::after {
+    content: counter(cityPopulation);
+  }
+  .counter::before {
+    content: "Population: ";
+  }
+
+  .large-image:hover~.counter {
+    --cityPopulation: 8239375;
+    opacity: 0.5;
+  }
+
+  .no-interact {
+    pointer-events: none;
+  }
+
+
+  .home {
+    text-decoration: none;
+    opacity: 1;
+    transition: ease all 0.5s;
+  }
+
+  .home:hover {
+    opacity: 0.8;
+    color: lightpink;
+  }

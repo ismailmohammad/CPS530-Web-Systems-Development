@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Lab 3 Main Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #a80707, #992f66);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .title {
+            color: white;
+            font: 800 2rem;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.219);
+        }
+
+        img {
+            border-radius: 1em;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.123);
+            border-radius: 1em;
+            margin: 20px;
+            opacity: 1;
+            transition: ease all 0.5s;
+            color: white;
+        }
+
+        a.card:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .shadow {
+            box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.219);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="title">Lab 3 Landing Page</h1>
+            <div class="col-md-6">
+                <a href="./a/lab03a.html" class="card shadow">
+                    <h2 class="title">Part A</h2>
+                    <div class="card-body">
+                        <img src="./assets/A.png" class="img-fluid" alt="Part A">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="./b/lab03b.html" class="card shadow">
+                    <h2 class="title">Part B</h2>
+                    <div class="card-body">
+                        <img src="./assets/B.png" class="img-fluid" alt="Part A">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="title">Part C</h2>
+                        <p>Part A provided more precise control over the layout and styling with smooth animations,
+                            hover effects, and the responsive layout for different screen sizes. The idea was to try and
+                            make the page seem creatively unique. But on the other hand, bootstrap/Part B made the dev
+                            process easier with components and responsive layouts already. From a point of view of
+                            speed, it’s what I used to make the landing page as well to just quickly put something
+                            together and submit. The downside is that it might be less unique, but you can of course add
+                            on more styling to make it nicer.</p>
+                        <p>Some challenges were having to reorganize the html to play nice with part B, the default
+                            fonts of bootstrap etc. I’ve left them as is as I couldn’t be bothered. There are definitely
+                            optimizations and redundancies that are left over in the CSS, but it is what it is; the
+                            functionality is there. I personally enjoyed making things from scratch with the pure css
+                            approach as I felt like I had more control over things. Realistically I would see myself
+                            using a melange of libraries and custom CSS to build on whatever I might want to
+                            add/override depending on what the project requires. </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <!-- Flag of Japan -->
+    <rect width="30%" height="50%" fill="#fff" />
+    <circle cx="15%" cy="25%" r="35" fill="#bb0111" />
+
+    <!-- Text for Japan -->
+    <text x="50%" y="25%" font-size="24" fill="black" text-anchor="middle">Japan</text>
+
+    <!-- Flag of Bangladesh -->
+    <rect y="50%" width="30%" height="50%" fill="#006a4e" />
+    <circle cx="12.5%" cy="75%" r="35" fill="#e70012" />
+    <text x="50%" y="75%" font-size="24" fill="black" text-anchor="middle">Bangladesh</text>
+</svg>

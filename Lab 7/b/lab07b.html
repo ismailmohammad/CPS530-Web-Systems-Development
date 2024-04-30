@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./downloadedBootstrap.css" rel="stylesheet">
+    <title>Lab 7 - Perl - Part B</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #061410, #15181a);
+            color: #fff;
+            padding: 20px;
+            transition: ease all 1s;
+        }
+
+        .title {
+            color: white;
+            font: 800 2rem;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.219);
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.123);
+            border-radius: 1em;
+            margin: 20px;
+            opacity: 1;
+            transition: ease all 0.5s;
+            color: white;
+        }
+
+        .inner-card {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 1em;
+        }
+
+        .problem {
+            background: linear-gradient(90deg, #a80707, #992f66);
+        }
+        .hidden {
+            display: none;
+        }
+        a.card:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .shadow {
+            box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.219);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body onload="populateDefaultBookmarks()">
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="card shadow problem">
+                    <div class="card-body row">
+                        <h1 class="title">Lab 7 - Perl - Part B</h1>
+                    </div>
+                </div>
+                <div class="card shadow problem">
+                    <h2 class="title">Problem 2 - Customer Registration</h2>
+                    <div class="card-body row">
+                        <div class="col card shadow inner-card">
+                            <form id="infoForm" class="card-body" action="https://www2.scs.torontomu.ca/~mnismail/cgi-bin/lab07b.cgi" method="post">
+                                <div class="col-sm-6">
+                                <label><h5>Name</h5></label>
+                                <div class="form-group offset-sm-1">    
+                                    <label for="fname">First Name</label>
+                                    <input type="text" class="form-control" id="fname" name="fname" placeholder="Paddington"
+                                        pattern="[a-zA-Z ]+" required>
+                                </div>
+                                <div class="form-group offset-sm-1">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Bear"
+                                    pattern="[a-zA-Z ]+" required>
+                                </div>
+                                <label><h5>Address</h5></label>
+                                <div class="form-group offset-sm-1">
+                                    <label for="address">Street Number and Name</label>
+                                    <input type="text" class="form-control" id="address"
+                                        placeholder="221 Baker Street" required>
+                                </div>
+                                <div class="form-group offset-sm-1">
+                                    <label for="address">Address Line Two</label>
+                                    <input type="text" class="form-control" id="address2"
+                                        placeholder="Unit 444 - Optional">
+                                </div>
+                                <div class="form-group offset-sm-1">
+                                    <label for="province">Select Province</label>
+                                    <select id="province" class="form-select" aria-label="Select Province" placeholder="Select Province">
+                                        <option value="AB">Alberta</option>
+                                        <option value="BC">British Columbia</option>
+                                        <option value="MB">Manitoba</option>
+                                        <option value="NB">New Brunswick</option>
+                                        <option value="NL">Newfoundland and Labrador</option>
+                                        <option value="NS">Nova Scotia</option>
+                                        <option value="NT">Northwest Territories</option>
+                                        <option value="NU">Nunavut</option>
+                                        <option value="ON" selected>Ontario</option>
+                                        <option value="PE">Prince Edward Island</option>
+                                        <option value="QC">Quebec</option>
+                                        <option value="SK">Saskatchewan</option>
+                                        <option value="YT">Yukon</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="ex. 4169671111" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="ex. a@b.c.com" required>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button onclick="validateForm(event)" class="btn btn-success text-center">Register</button>
+                                </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div id="results" class="col card shadow inner-card hidden">
+                            <div id="resultsBody" class="card-body row">
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

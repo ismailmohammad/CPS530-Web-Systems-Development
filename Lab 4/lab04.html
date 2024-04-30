@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Still using only plain JS, only imported bootstrap CSS -->
+    <link href="./downloadedBootstrap.css" rel="stylesheet">
+    <title>Lab 4 - JavaScript</title>
+    <script src="./lab04.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #061410, #15181a);
+            color: #fff;
+            padding: 20px;
+            transition: ease all 1s;
+        }
+
+        .title {
+            color: white;
+            font: 800 2rem;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.219);
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.123);
+            border-radius: 1em;
+            margin: 20px;
+            opacity: 1;
+            transition: ease all 0.5s;
+            color: white;
+        }
+
+        #area51,
+        .inner-card {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 1em;
+        }
+
+        #area51 {
+            color: whitesmoke;
+        }
+
+        .problem {
+            background: linear-gradient(90deg, #a80707, #992f66);
+        }
+        .hidden {
+            display: none;
+        }
+        a.card:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .shadow {
+            box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.219);
+        }
+
+        a {
+            text-decoration: none;
+        }
+        #bookmarkList {
+            list-style-type: upper-roman;
+        }
+    </style>
+</head>
+
+<body onload="populateDefaultBookmarks()">
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="card shadow problem">
+                    <div class="card-body row">
+                        <h1 class="title">Lab 4 - JavaScript</h1>
+                    </div>
+                </div>
+                <div class="card shadow problem">
+                    <h2 class="title">Problem 1 - Validation</h2>
+                    <div class="card-body row">
+                        <div class="col card shadow inner-card">
+                            <form id="infoForm" class="card-body">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <!-- I know it said "a name cannot have anything but letters", however names do have spaces in between them so I included 
+                                    that in the pattern. -->
+                                    <input type="text" class="form-control" id="name" placeholder="ex. Nandor the Relentless"
+                                        pattern="[a-zA-Z ]+" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control" id="address"
+                                        placeholder="ex. 221B Baker Street, Toronto, Ontario, NW1 6XE" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="ex. (416)555-5555"
+                                        pattern="\([0-9]{3}\)[0-9]{3}-[0-9]{4}" required>
+                                    <small id="formHelp" class="form-text text-white">Rest assured with peace of mind, we'll sell your
+                                        data to third parties. Check out our un-Privacy Policy somewhere in the ether.</small>
+                                </div>
+                                <div class="text-center">
+                                    <button onclick="validateForm(event)" class="btn btn-danger text-center">Generate Display</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div id="results" class="col card shadow inner-card hidden">
+                            <div id="resultsBody" class="card-body row">
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card shadow problem">
+                    <h2 class="title">Problem 2 - Char Counter</h2>
+                    <form id="counterForm" class="card-body row">
+                        <div class="col-lg-7">
+                            <textarea class="form-control" id="area51" rows="6" onkeyup="countChars()"></textarea>
+                        </div>
+                        <div class="col-lg-5 text-center">
+                            <div class="row p-4">
+                            <h1 class="col-lg-6">Characters: </h1>
+                            <h1 id="chars" class="col-lg-6 inner-card shadow">0</h1>
+                            <h1 class="col-lg-6">Letters: </h1>
+                            <h1 id="letters" class="col-lg-6 inner-card shadow">0</h1>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <div class="card shadow problem">
+                    <h2 class="title">Problem 3 - Bookmarks</h2>
+                    <div class="card-body">
+                        <h4 class="text-center">Bookmarked Websites: </h4>
+                        <ul id="bookmarkList">
+                            <!-- Placeholder Comment - JS populated -->
+                        </ul>
+                        <h4 class="text-center">Try and add your own to the list below</h4>
+                        <div class="col card shadow inner-card">
+                        <form id="bookmarkForm" class="card-body">
+                            <div class="form-group">
+                                <label for="bk-name">Name</label>
+                                <input type="text" class="form-control" id="bk-name" placeholder="ex. Name your bookmark" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="url">Website URL</label>
+                                <input type="url" class="form-control" id="url"
+                                    placeholder="ex. https://getbootstrap.com/ or http://neverssl.com/" required>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button onclick="addCustomBookmark(event)" class="btn btn-success">Add Bookmark</button>
+                            </div>
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
