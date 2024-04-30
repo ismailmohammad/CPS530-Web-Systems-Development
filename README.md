@@ -31,7 +31,7 @@ https://github.com/ismailmohammad/CPS530-Web-Systems-Development/assets/23105842
 ## Lab 5 - JQuery
 Lab 5 was a simple "Mr.Potato Head" example, themed to create give Mr. Taytoh a new identity that can be downloaded.
 
-#### Demo
+#### Demo (Audio Available - Scenic Countryside)
 https://github.com/ismailmohammad/CPS530-Web-Systems-Development/assets/23105842/ab0e7900-7a43-4a6d-8b03-fcc9b049a710
 #### Screenshots
 
@@ -41,38 +41,22 @@ https://github.com/ismailmohammad/CPS530-Web-Systems-Development/assets/23105842
 
 ## Lab 6 - SVG
 Lab 6 was recreating basic shapes using SVG and reproducing country flags using SVG.
-
-#### Demo
-
 #### Screenshots
+![Screenshot 2024-04-30 075624](https://github.com/ismailmohammad/CPS530-Web-Systems-Development/assets/23105842/2ba0cc52-3430-4825-a517-c3b5e555f097)
 
 ## Lab 7 - Perl and CGI
 Lab 7 was simple usage of Perl for server side programming
 
-#### Demo
-
-#### Screenshots
-
 ## Lab 8 - PHP
 Lab 8 was simple usage of PHP for server side programming
-
-#### Demo
-
-#### Screenshots
 
 ## Lab 9 - MySQL
 Lab 9 was simple usage of MySQL for server side programming
 
-#### Demo
-
-#### Screenshots
-
 ## Lab 10 - Exploring
 Lab10 was inherently exploring modern frameworks. In my case, I chose to work with React and more specifically NextJS to create NextCrypt and a simple authentication system. See https://nextcrypt.stockwatch.cloud/
 
-#### Demo
-
-#### Screenshots
+The free M0 cluster has been paused so it may take some on first run.
 
 
 
