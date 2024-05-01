@@ -42,7 +42,8 @@ https://github.com/ismailmohammad/CPS530-Web-Systems-Development/assets/23105842
 ## Lab 6 - SVG
 Lab 6 was recreating basic shapes using SVG and reproducing country flags using SVG.
 #### Screenshots
-![Screenshot 2024-04-30 075624](https://github.com/ismailmohammad/CPS530-Web-Systems-Development/assets/23105842/2ba0cc52-3430-4825-a517-c3b5e555f097)
+![Screenshot 2024-04-30 075624](https://github.com/ismailmohammad/CPS530-Web-Systems-Development/assets/23105842/d73f1c97-9c86-4c78-a224-a7569bf1cf35)
+
 
 ## Lab 7 - Perl and CGI
 Lab 7 was simple usage of Perl for server side programming
